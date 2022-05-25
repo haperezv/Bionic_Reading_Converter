@@ -1,0 +1,5 @@
+<div class="col-6 mt-5" style="margin: 0 auto; text-align: center">
+    <h2><%= @bionics.text_initial%></h2>
+    <%= link_to 'Edit', edit_bionic_path(id:@bionics.id)%>
+    <%= link_to 'Delete', bionic_path(@bionics), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+</div>

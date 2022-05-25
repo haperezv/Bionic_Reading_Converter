@@ -1,0 +1,2 @@
+class Bionic < ApplicationRecord
+end
