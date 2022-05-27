@@ -1,8 +1,29 @@
-<div class="col-6 mt-5" style="margin: 0 auto; text-align: center">
-    <h1> Articles Created </h1>
-        <% @bionic.each do |bionic|  %> 
-            <ul> 
-                <%=  link_to "text_#{bionic.id}", show_bionic_path(id: bionic)%>
-            </ul>
-         <%end%>
-</div>
+<body class="d-flex h-100 text-center text-white bg-dark">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <header class="mb-auto">
+            <div>
+                <h3 class="float-md-start mb-0"> Articles Created </h3>
+                <nav class="nav nav-masthead justify-content-center float-md-end">
+                        <a class="nav-link active" aria-current="page" href="/bionics/">Home</a>
+                         <a class="nav-link " href="/bionics/new">New Article</a>
+                </nav>
+            </div>    
+        </header>
+        <main  class="px-3">
+            <h1>Bionic Articles</h1>   
+                <p class = "lead ">
+                    Did you know that your brain reads faster than your eye?
+                </p>    
+                <% @bionic.each do |bionic|  %> 
+                    <ul class="btn btn-lg btn-secondary fw-bold border-white bg-white" > 
+                       <%=  link_to "text_#{bionic.id}", show_bionic_path(id: bionic)%>
+                    </ul>
+                <%end%>
+        </main>
+        <footer class="mt-auto text-white-50">
+                <p>
+                    Bionic Reading Converter
+                </p>
+        </footer>
+    </div>
+</body>
