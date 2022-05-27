@@ -16,13 +16,12 @@ class BionicsController < ApplicationController
     end   
 
     def create
-        #debugger
         @bionic = Bionic.create bionic_params
         request = BionicService.new
         response = request.execute( bionic_params[:text_initial])
-        @bionic.text_converted = response
+        @bionic.text_converted = response.encode('utf-8', invalid: :replace, undef: :replace, replace: '_')
         @bionic.save
-        redirect_to bionics_path
+        redirect_to bionic_path(@bionic)
     end
 
     def update

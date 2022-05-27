@@ -2,7 +2,7 @@
     <h1> Articles Created </h1>
         <% @bionic.each do |bionic|  %> 
             <ul> 
-                <%=  link_to bionic.text_initial, show_bionic_path(id:bionic)%>
+                <%=  link_to "text_#{bionic.id}", show_bionic_path(id: bionic)%>
             </ul>
          <%end%>
 </div>
