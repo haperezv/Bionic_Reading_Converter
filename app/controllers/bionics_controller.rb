@@ -18,12 +18,15 @@ class BionicsController < ApplicationController
     def create
         #debugger
         @bionic = Bionic.create bionic_params
-        @bionic.text_converted = bionic_params[:text_initial]
+        request = BionicService.new
+        response = request.execute( bionic_params[:text_initial])
+        @bionic.text_converted = response
         @bionic.save
         redirect_to bionics_path
     end
 
     def update
+        #debugger
         @bionics.update bionic_params
         redirect_to bionics_path
     end
