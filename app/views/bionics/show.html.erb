@@ -1,26 +1,20 @@
- <body class="d-flex h-100 text-center text-white bg-dark">  
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-        <header class="mb-auto">
-            <div>
-                <h3 class="float-md-start mb-0"> Articles Created </h3>
-                <nav class="nav nav-masthead justify-content-center float-md-end">
-                        <a class="nav-link active" aria-current="page" href="/bionics/">Home</a>
-                         <a class="nav-link " href="/bionics/new">New Article</a>
-                </nav>
-            </div>    
-        </header>
-        <main  class="px-3 reading mt-5 text border ">
-            <div>
-                <h1>Text</h1>
-                <p class = "lead_1"><%= @bionics.text_initial %></p>
-            </div>
-            <br />
-            <div>
-                <h1>Text Converted</h1>
-                 <p class = "lead_1 "><%= @bionics.text_converted.html_safe %></p>
-            </div>
-        </main>
+<%= render partial:'header'%>
+
+    <main  class="px-3 reading mt-5 text border ">
+        <div>
+            <h1>Text</h1>
+            <p class = "lead_1"><%= @bionics.text_initial %></p>
+        </div>
+        <br />
+        <div>
+            <h1>Text Converted</h1>
+                <p class = "lead_1 "><%= @bionics.text_converted.html_safe %></p>
+        </div>
+    </main>
+        <button class="btn btn-lg  fw-bold border-white bg-white mt-2"> 
             <%= link_to 'Edit', edit_bionic_path(id:@bionics.id)%>
-            <%= link_to 'Delete', bionic_path(@bionics), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
-     </div>   
-</body>
+        </button>
+        <button class="btn btn-lg  fw-bold border-white bg-white mt-2">
+        <%= link_to 'Delete', bionic_path(@bionics), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+    </button>
+<%= render partial:'footer'%>

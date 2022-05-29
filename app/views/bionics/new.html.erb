@@ -1,7 +1,8 @@
-<div class="col-6" style="margin: 0 auto">
+<%= render partial:'header'%>
+
     <h1> Enter your text here </h1>
     <%= form_with model:@bionic do  |f|%>
         <%= f.text_area :text_initial, class: "form-control", rows: "10", cols: "50" %>
         <%= f.submit "Converter", class: "btn btn-primary btn-lg mt-3" %>
     <% end %>
-</div>
+<%= render partial:'footer'%>
